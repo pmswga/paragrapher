@@ -42,12 +42,33 @@ def ents2norm(ents) -> list:
             entity = []
 
             for w in doc:
-                entity.append(w.lemma_)
+                entity.append(w.text) # получение леммы
 
-            unique_ents.setdefault(' '.join(entity).title())
+            unique_ents.setdefault(' '.join(entity))
 
     return list(unique_ents)
 
+
+def get_entity(string: str) -> tuple:
+    global nlp
+
+    entity = tuple(nlp(string).ents)
+
+    print(entity)
+    
+    return (entity[0].text, entity[0].label_)
+
+
+def wordbag(lemmas: list) -> dict:
+    bag = {}
+    
+    for l in lemmas:
+        if l not in bag.keys():
+            bag.setdefault(l, 1)
+        
+        bag[l] += 1
+
+    return bag
 
 def save_json(filename: str, pars_list: list[tuple]) -> None:
     with open(filename, 'w', encoding='utf-8') as fp:
