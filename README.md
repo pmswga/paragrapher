@@ -30,6 +30,13 @@
 
 # Запуск
 
+Установить необходимые библиотеки
+
+```bash
+pip install -r requirements.txt
+```
+
+Указать путь к PDF файлу и страницы для анализа
 
 ```python
 $ python main.py --pdf='/path/to/mybook.pdf' --spage=10 --endpage=80
