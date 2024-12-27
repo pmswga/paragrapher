@@ -11,10 +11,13 @@
 # )
 
 
-import pandas as pd
+def compare_list(a: list, b: list) -> list:
+    return [x for x in a + b if x not in a or x not in b]
 
-s = pd.DataFrame([
-    (1, 'asffas', [124,124,124])
-])
 
-s.to_csv('test.csv', header=False)
+res = compare_list(
+    ['a', 'b'],
+    ['b', 'c']
+)
+
+print(res)
