@@ -1,0 +1,7 @@
+pandas==2.0.0
+pymongo==4.3.3
+PyPDF2==3.0.1
+PyQt6==6.5.1
+PyQt6_sip==13.5.1
+spacy==3.5.2
+tqdm==4.65.0
